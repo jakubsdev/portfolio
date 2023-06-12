@@ -110,7 +110,7 @@ import PlusCircle from "../components/PlusCircle.astro";
       <h1 class="text-6xl mb-4 font-poppins tracking-wide self-start">
         Jakub Swietoniowski
       </h1>
-      <p class="text-zinc-400 text-lg">
+      <p class="text-zinc-300 text-lg">
         A full-stack web developer that is committed to helping businesses
         provide seamless user experiences, <span
           class="text-transparent bg-clip-text bg-violet-500"
@@ -162,23 +162,28 @@ import PlusCircle from "../components/PlusCircle.astro";
         </svg>
       </a>
     </header>
-    <section id="about" class="flex h-screen justify-center items-center">
+    <section
+      id="about"
+      class="text-zinc-300 flex h-screen justify-center items-center"
+    >
       <div class="space-y-4 z-10 relative">
         <h1 class="mb-6 text-8xl font-bold font-poppins text-zinc-800/80">
           ABOUT.
         </h1>
         <p>
-          Hello, I'm Jakub and I enjoy creating interactive web experiences in
-          all shapes and sizes. My programming journey goes back to 2014 when I
-          set myself the goal to create my own incremental game. The constant
-          thrill of finding and solving problems made me determined to pursue
-          software development as a career.
+          Hello, I'm Jakub and I enjoy creating interactive digital experiences
+          in all shapes and sizes. My programming journey dates back to 2014
+          when I decided to make my own incremental game. The constant thrill of
+          identifying and solving complex problems fuelled my determination to
+          pursue software development as a career.
         </p>
         <p>
-          Since the beginning of my journey, I learned a lot and explored a
-          variety of different web technologies to widen my horizons and skills.
-          I am currently finishing a bachelor's degree in Computer Science at
-          Lancaster University.
+          Over the years, I improved my skills and explored various web
+          technologies. Currently, I am on the verge of earning a Bachelor's
+          degree in Computer Science from Lancaster University. I look forward
+          to collaborating with teams that value innovation, and I'm always open
+          to exciting opportunities to learn, grow, and contribute in meaningful
+          ways.
         </p>
       </div>
       <div class="bg-gray-800 rounded-full float-right w-40 h-40 shrink-0">
@@ -188,41 +193,84 @@ import PlusCircle from "../components/PlusCircle.astro";
       id="projects"
       class="flex flex-col space-y-4 h-screen justify-center items-center"
     >
-      <h1 class="ml-auto text-8xl font-bold font-poppins text-zinc-800/80">
+      <h1 class="self-end text-8xl font-bold font-poppins text-zinc-800/80">
         PROJECTS.
       </h1>
       <div class="project bg-zinc-900/40 w-full rounded-md"></div>
       <div class="project bg-zinc-900/40 w-full rounded-md"></div>
     </section>
-    <section id="contact" class="relative space-x-8 w-2/3">
-      <h1 class="absolute -z-10 -top-10 text-6xl font-bold text-violet-900/50">
-        GET IN TOUCH
+    <section
+      id="contact"
+      class="text-zinc-300 flex flex-col space-y-4 h-screen justify-center items-center"
+    >
+      <h1 class="self-start text-8xl font-bold font-poppins text-zinc-800/80">
+        GET IN TOUCH.
       </h1>
       <h2 class="text-lg mb-4">
         I answer to all e-mails whenever I can. If you have a problem for me to
         solve, or just want to connect, please don't hesitate to contact me!
       </h2>
       <a
-        class="bg-violet-900/20 ring-1 ring-violet-500 rounded-full px-6 py-2"
-        href="mailto:50next50@gmail.com">Say hello</a
+        id="contact-first"
+        class="text-zinc-100 mt-8 self-start flex cursor-pointer"
+        href="mailto:50next50@gmail.com"
       >
+        <div id="contact-first-overlay">
+          <p>Let's work together</p>
+          <!-- https://feathericons.dev/?search=mail&iconset=feather -->
+          <svg
+            class="h-6 ml-3"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            class="main-grid-item-icon"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <p>Let's work together</p>
+        <svg
+          id="contact-arrow"
+          class="h-6 ml-3"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+        </svg>
+      </a>
     </section>
-    <footer class="py-4 text-gray-500 flex flex-col items-end">
+    <footer class="text-zinc-400 flex flex-col items-end">
       <p>
-        Made with... <span class="italic text-gray-500/75">checks notes</span>
+        Made with... <span class="italic text-zinc-500">checks notes</span>
         a fine pair of hands, and <a
-          class="transition duration-200 ease-out text-violet-300 hover:text-violet-500"
+          class="transition duration-200 ease-out text-zinc-100 hover:text-violet-500"
           href="https://astro.build/">Astro</a
         >, and <a
-          class="transition duration-200 ease-out text-violet-300 hover:text-violet-500"
+          class="transition duration-200 ease-out text-zinc-100 hover:text-violet-500"
           href="https://tailwindcss.com/">Tailwind CSS</a
         >.
       </p>
       <p>
         This site does not use cookies, go eat some instead. Source code is
         available <a
-          class="transition duration-200 ease-out text-violet-300 hover:text-violet-500"
-          href="#">here</a
+          class="transition duration-200 ease-out text-zinc-100 hover:text-violet-500"
+          href="https://github.com/jakubsdev/portfolio">here</a
         >.
       </p>
     </footer>
