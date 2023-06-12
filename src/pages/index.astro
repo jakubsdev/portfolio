@@ -1,81 +1,310 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Circle from "../components/Circle.astro";
+import PlusCircle from "../components/PlusCircle.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+<Layout title="Jakub Swietoniowski">
+  <nav
+    class="sticky top-0 w-[260px] h-screen flex shrink-0 justify-end pr-4 items-center"
+  >
+    <ul
+      class="relative [&>li]:flex [&>li]:justify-end [&>li]:h-6 [&>li]:mb-1 [&>li]:w-full [&>li]:items-center [&>*:nth-child(4)]:mt-11 [&>li>a]:font-poppins text-sm"
+    >
+      <li>
+        <a
+          class="hover:text-slate-200 transition-colors duration-200 ease-out"
+          href="#about">ABOUT</a
+        >
+        <Circle fill="fill-zinc-100" float="right" />
+      </li>
+      <li>
+        <a
+          class="hover:text-slate-200 transition-colors duration-200 ease-out"
+          href="#projects">PROJECTS</a
+        >
+        <Circle fill="fill-gray-200" float="right" />
+      </li>
+      <li>
+        <a
+          class="hover:text-slate-200 transition-colors duration-200 ease-out"
+          href="#contact">CONTACT</a
+        >
+        <Circle fill="fill-gray-200" float="right" />
+      </li>
+      <li>
+        <a
+          class="hover:text-slate-200 transition-colors duration-200 ease-out"
+          href="">GITHUB</a
+        >
+        <!-- https://feathericons.dev/?search=github&iconset=feather -->
+        <svg
+          class="float-right h-2/3 ml-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          class="main-grid-item-icon"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        >
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          ></path>
+        </svg>
+      </li>
+      <li>
+        <a
+          class="hover:text-slate-200 transition-colors duration-200 ease-out"
+          href="">LINKEDIN</a
+        >
+        <!-- https://feathericons.dev/?search=linkedin&iconset=feather -->
+        <svg
+          class="float-right h-2/3 ml-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          class="main-grid-item-icon"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        >
+          <path
+            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          ></path>
+          <rect height="12" width="4" x="2" y="9"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </li>
+    </ul>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+    <svg
+      id="indicator"
+      class="fill-violet-900/20 text-violet-500 z-10"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      class="main-grid-item-icon"
+      fill="#fff"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+    </svg>
+  </nav>
+
+  <main class="h-auto px-32">
+    <header class="flex justify-center items-center flex-col h-screen">
+      <p class="text-zinc-400/40 tracking-wider self-start">
+        Hello, my name is
+      </p>
+      <h1 class="text-6xl mb-4 font-poppins tracking-wide self-start">
+        Jakub Swietoniowski
+      </h1>
+      <p class="text-zinc-400 text-lg">
+        A full-stack web developer that is committed to helping businesses
+        provide seamless user experiences, <span
+          class="text-transparent bg-clip-text bg-violet-500"
+          >one line of JavaScript at a time</span
+        >.
+      </p>
+      <a
+        id="contact-first"
+        class="mt-8 self-start flex cursor-pointer"
+        href="mailto:50next50@gmail.com"
+      >
+        <div id="contact-first-overlay">
+          <p>Let's work together</p>
+          <!-- https://feathericons.dev/?search=mail&iconset=feather -->
+          <svg
+            class="h-6 ml-3"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            class="main-grid-item-icon"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <p>Let's work together</p>
+        <svg
+          id="contact-arrow"
+          class="h-6 ml-3"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+        </svg>
+      </a>
+    </header>
+    <section id="about" class="flex h-screen justify-center items-center">
+      <div class="space-y-4 z-10 relative">
+        <h1 class="mb-6 text-8xl font-bold font-poppins text-zinc-800/80">
+          ABOUT.
+        </h1>
+        <p>
+          Hello, I'm Jakub and I enjoy creating interactive web experiences in
+          all shapes and sizes. My programming journey goes back to 2014 when I
+          set myself the goal to create my own incremental game. The constant
+          thrill of finding and solving problems made me determined to pursue
+          software development as a career.
+        </p>
+        <p>
+          Since the beginning of my journey, I learned a lot and explored a
+          variety of different web technologies to widen my horizons and skills.
+          I am currently finishing a bachelor's degree in Computer Science at
+          Lancaster University.
+        </p>
+      </div>
+      <div class="bg-gray-800 rounded-full float-right w-40 h-40 shrink-0">
+      </div>
+    </section>
+    <section
+      id="projects"
+      class="flex flex-col space-y-4 h-screen justify-center items-center"
+    >
+      <h1 class="ml-auto text-8xl font-bold font-poppins text-zinc-800/80">
+        PROJECTS.
+      </h1>
+      <div class="project bg-zinc-900/40 w-full rounded-md"></div>
+      <div class="project bg-zinc-900/40 w-full rounded-md"></div>
+    </section>
+    <section id="contact" class="relative space-x-8 w-2/3">
+      <h1 class="absolute -z-10 -top-10 text-6xl font-bold text-violet-900/50">
+        GET IN TOUCH
+      </h1>
+      <h2 class="text-lg mb-4">
+        I answer to all e-mails whenever I can. If you have a problem for me to
+        solve, or just want to connect, please don't hesitate to contact me!
+      </h2>
+      <a
+        class="bg-violet-900/20 ring-1 ring-violet-500 rounded-full px-6 py-2"
+        href="mailto:50next50@gmail.com">Say hello</a
+      >
+    </section>
+    <footer class="py-4 text-gray-500 flex flex-col items-end">
+      <p>
+        Made with... <span class="italic text-gray-500/75">checks notes</span>
+        a fine pair of hands, and <a
+          class="transition duration-200 ease-out text-violet-300 hover:text-violet-500"
+          href="https://astro.build/">Astro</a
+        >, and <a
+          class="transition duration-200 ease-out text-violet-300 hover:text-violet-500"
+          href="https://tailwindcss.com/">Tailwind CSS</a
+        >.
+      </p>
+      <p>
+        This site does not use cookies, go eat some instead. Source code is
+        available <a
+          class="transition duration-200 ease-out text-violet-300 hover:text-violet-500"
+          href="#">here</a
+        >.
+      </p>
+    </footer>
+  </main>
+  <div
+    class="sticky top-0 w-[260px] h-screen flex shrink-0 flex-col justify-center items-start pl-4"
+  >
+    <!-- <p class="top-40 text-zinc-400/40 tracking-wider self-start absolute">
+      Technologies I work with:
+    </p> -->
+
+    <ul
+      id="skills"
+      class="[&>li]:flex [&>li]:h-6 [&>li]:mb-1 [&>li]:w-full [&>li]:items-center [&>li>p]:font-poppins text-sm"
+    >
+      <li>
+        <PlusCircle float="left" />
+        <p>HTML</p>
+      </li>
+      <li>
+        <PlusCircle float="left" />
+        <p>CSS</p>
+      </li>
+      <li>
+        <PlusCircle float="left" />
+        <p>REACT.JS</p>
+      </li>
+      <li>
+        <PlusCircle float="left" />
+        <p>JAVASCRIPT (ES6+)</p>
+      </li>
+      <li>
+        <PlusCircle float="left" />
+        <p>TYPESCRIPT</p>
+      </li>
+      <li>
+        <PlusCircle float="left" />
+        <p>NODE.JS</p>
+      </li>
+      <li>
+        <PlusCircle float="left" />
+        <p>MONGODB</p>
+      </li>
+      <li>
+        <PlusCircle float="left" />
+        <p>DOCKER</p>
+      </li>
+    </ul>
+  </div>
+
+  <style>
+    /* body {
+      background: radial-gradient(
+        circle at var(--spot-x) var(--spot-y),
+        rgba(139, 92, 246, 1) 10%,
+        rgba(39, 39, 42, 1) 15%
+      );
+    } */
+
+    #indicator {
+      /* initial scale */
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    #contact-first {
+      position: relative;
+    }
+    #contact-first-overlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200%;
+      width: 200%;
+      clip-path: circle(0% at 0px 50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      z-index: 10;
+      @apply bg-violet-700 text-black;
+    }
+  </style>
+</Layout>
