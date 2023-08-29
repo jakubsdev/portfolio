@@ -29,10 +29,10 @@ const findCenterRelativeToParent = (
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  const indicator = document.querySelector("#indicator");
-  const navLinks = document.querySelectorAll("nav ul li");
+  const navLinks = document.querySelectorAll(
+    "nav ul li"
+  ) as NodeListOf<HTMLElement>;
   const navigation = document.querySelector("nav ul");
-
   const contactFirst = document.querySelector("#contact-first") as HTMLElement;
   const contactIcon: HTMLElement | null = document.querySelector(
     "#contact-first-overlay > svg"
@@ -40,31 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const contactOverlay = document.querySelector(
     "#contact-first-overlay"
   ) as HTMLElement;
-
   const contactArrow = document.querySelector("#contact-arrow") as SVGElement;
-
-  const projects: HTMLElement[] = Array.from(
-    document.querySelectorAll(".project")
-  );
-
-  const skillsUsed = [[0, 1, 2, 3, 4, 5, 6]];
-  const skills: HTMLElement[] = Array.from(
-    document.querySelectorAll("#skills > li")
-  );
-  const skillsList = document.querySelector("#skills") as HTMLElement;
-
-  for (let i = 0; i < projects.length; i++) {
-    projects[i].style.height = `${skillsList.getBoundingClientRect().height}px`;
-    projects[i].addEventListener("mouseover", () => {
-      skillsUsed[i].forEach((element) => {
-        skills[element].classList.add("text-violet-500");
-      });
-      const additionalSkill = document.createElement("li");
-      additionalSkill.innerHTML = "TAILWINDCSS";
-      skillsList.appendChild(additionalSkill);
-    });
-  }
-
   const contactIconCoords = findCenterRelativeToParent(
     contactIcon,
     contactOverlay
@@ -75,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
       targets: "#contact-first-overlay",
       clipPath: `circle(9% at ${contactIconCoords.x}px 50%)`,
       easing: "easeOutCirc",
-      duration: 500,
+      duration: 400,
       complete: () => {
         contactArrow.style.opacity = "1";
         contactArrow.style.transform = "translateX(0%)";
@@ -87,7 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
       translateX: "20%",
       opacity: "0",
       easing: "easeOutQuart",
-      duration: 300,
+      duration: 200,
     });
   });
 
@@ -103,109 +79,111 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const wrapper = document.querySelector<HTMLElement>("#wrapper");
+
   for (let i = 0; i < navLinks.length; i++) {
     navLinks[i].addEventListener("mouseenter", () => {
       anime({
         targets: "#wrapper",
-        backgroundPosition: `0% ${(i + 1) * -5}%`,
-        backgroundSize: "4vmin 4vmin",
+        backgroundPosition: `0% ${i * -5}%`,
+        backgroundSize: "42px 42px",
         easing: "easeOutCirc",
-        duration: 200,
+        duration: 300,
+        complete: () => {
+          wrapper!.style.backgroundPosition = `0% ${i * -5}%`;
+        },
       });
     });
 
-    // navigation?.addEventListener("mouseenter", () => {
-    //   anime({
-    //     targets: "#wrapper",
-    //     backgroundSize: "4vmin 4vmin",
-    //     easing: "easeOutCirc",
-    //     duration: 200,
-    //   });
-    // });
-
-    navigation?.addEventListener("mouseleave", () => {
+    navigation!.addEventListener("mouseleave", () => {
       anime({
         targets: "#wrapper",
-        backgroundSize: "5vmin 5vmin",
+        backgroundSize: "48px 48px",
         easing: "easeOutCirc",
-        duration: 200,
+        duration: 300,
       });
     });
   }
 
-  document.querySelector("li")?.addEventListener("mouseenter", (event) => {});
-
-  anime({
-    targets: "#indicator",
-    opacity: 1,
-    delay: 500,
-    duration: 300,
-    easing: "linear",
+  const timeline = anime.timeline({
+    easing: "easeOutExpo",
   });
 
-  // anime({
-  //   targets: navLinks,
-  //   translateX: 50,
-  //   opacity: [0, 1], // From 0 to 1
-  //   delay: anime.stagger(100), // Each element will start 100ms after the previous one
-  // });
+  timeline
+    .add({
+      targets: "#wrapper",
+      opacity: [0, 1],
+      duration: 600,
+    })
+    .add({
+      targets: navLinks,
+      translateX: [-50, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(130),
+    })
+    .add(
+      {
+        targets: "header > :not(:last-child)",
+        translateY: [-30, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(100),
+      },
+      "-=800"
+    )
+    .add(
+      {
+        targets: "header > :last-child",
+        translateX: [-50, 0],
+        opacity: [0, 1],
+      },
+      "-=500"
+    )
+    .add({
+      targets: "#contact-arrow",
+      translateX: 6,
+      duration: 200,
+      easing: "easeInOutExpo",
+    })
+    .add({
+      targets: "#contact-arrow",
+      translateX: 0,
+      duration: 200,
+    });
 });
 
 const observerOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.9,
+  threshold: 0.6,
 };
 
 let currentlyActiveSection: HTMLElement | null = null;
 
 const observer = new IntersectionObserver((entries) => {
+  let isAnySectionVisible = false;
+
   entries.forEach((entry) => {
     const id = entry.target.getAttribute("id");
-    const indicator: HTMLElement | null = document.querySelector("#indicator");
-    const { width, height } = indicator!.getBoundingClientRect();
-    const navLinkCircle: HTMLElement | null = document.querySelector(
-      `nav li a[href="#${id}"] + svg`
+    const navLink: HTMLElement | null = document.querySelector(
+      `nav li a[href="#${id}"]`
     );
 
     if (entry.isIntersecting) {
+      isAnySectionVisible = true;
+
       if (currentlyActiveSection) {
-        anime({
-          targets: ".active",
-          fillOpacity: "1",
-          strokeOpacity: "1",
-        });
         currentlyActiveSection.classList.remove("active");
       }
-      navLinkCircle!.classList.add("active");
-      const { xCenter, yCenter } = getCenterOfElement(
-        document.querySelector(".active")!
-      );
+      navLink!.classList.add("active");
 
-      anime({
-        targets: "#indicator",
-        top: yCenter - height / 2,
-        scale: [
-          { value: 1.5, duration: 100, easing: "easeInOutSine" },
-          { value: 0.9, duration: 100, easing: "easeInOutSine" },
-        ],
-        duration: 600,
-        easing: "cubicBezier(.25,.75,.5,1.25)",
-      });
-
-      anime({
-        targets: ".active",
-        fillOpacity: "0",
-        strokeOpacity: "0",
-      });
-
-      indicator!.style.left = `${xCenter - width / 2}px`;
-
-      currentlyActiveSection = navLinkCircle;
+      currentlyActiveSection = navLink;
     }
   });
+
+  if (!isAnySectionVisible) {
+    document.querySelector(".active")?.classList.remove("active");
+  }
 }, observerOptions);
 
-// Target the sections to observe
 const sections = document.querySelectorAll("section");
 sections.forEach((section) => observer.observe(section));

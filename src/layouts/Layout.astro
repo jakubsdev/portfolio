@@ -14,8 +14,8 @@ const { title } = Astro.props;
       name="description"
       content="Jakub Swietoniowski web developer portfolio"
     />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,10 +25,10 @@ const { title } = Astro.props;
     />
     <title>{title}</title>
   </head>
-  <body class="w-full h-full bg-zinc-950">
+  <body class="bg-zinc-950">
     <div
       id="wrapper"
-      class="bg-gradient-radial from-zinc-900/70 from-10% to-zinc-950 to-10% bg-[length:5vmin_5vmin] text-zinc-100 font-noto flex bg-zero"
+      class="bg-gradient-radial from-zinc-900 from-10% to-zinc-950 to-10% bg-zero bg-[length:48px_48px] text-zinc-300 font-poppins flex"
     >
       <slot />
     </div>

@@ -6,37 +6,22 @@ import PlusCircle from "../components/PlusCircle.astro";
 
 <Layout title="Jakub Swietoniowski">
   <nav
-    class="sticky top-0 w-[260px] h-screen flex shrink-0 justify-end pr-4 items-center"
+    class="sticky top-0 w-[280px] h-screen flex shrink-0 justify-center items-center"
   >
     <ul
-      class="relative [&>li]:flex [&>li]:justify-end [&>li]:h-6 [&>li]:mb-1 [&>li]:w-full [&>li]:items-center [&>*:nth-child(4)]:mt-11 [&>li>a]:font-poppins text-sm"
+      class="relative text-zinc-100 [&>li]:flex [&>li>a:hover]:text-violet-500 [&>li>a:hover~svg]:stroke-violet-400 [&>li]:justify-end [&>li]:h-8 [&>li]:mb-1 [&>li]:items-center [&>*:nth-child(4)]:mt-11"
     >
       <li>
-        <a
-          class="hover:text-slate-200 transition-colors duration-200 ease-out"
-          href="#about">ABOUT</a
-        >
-        <Circle fill="fill-zinc-100" float="right" />
+        <a href="#about">About</a>
       </li>
       <li>
-        <a
-          class="hover:text-slate-200 transition-colors duration-200 ease-out"
-          href="#projects">PROJECTS</a
-        >
-        <Circle fill="fill-gray-200" float="right" />
+        <a href="#projects">Projects</a>
       </li>
       <li>
-        <a
-          class="hover:text-slate-200 transition-colors duration-200 ease-out"
-          href="#contact">CONTACT</a
-        >
-        <Circle fill="fill-gray-200" float="right" />
+        <a href="#contact">Contact</a>
       </li>
       <li>
-        <a
-          class="hover:text-slate-200 transition-colors duration-200 ease-out"
-          href="">GITHUB</a
-        >
+        <a href="https://github.com/jakubsdev">Github</a>
         <!-- https://feathericons.dev/?search=github&iconset=feather -->
         <svg
           class="float-right h-2/3 ml-1"
@@ -57,10 +42,7 @@ import PlusCircle from "../components/PlusCircle.astro";
         </svg>
       </li>
       <li>
-        <a
-          class="hover:text-slate-200 transition-colors duration-200 ease-out"
-          href="">LINKEDIN</a
-        >
+        <a href="https://www.linkedin.com/in/swietoniowski-jakub/">Linkedin</a>
         <!-- https://feathericons.dev/?search=linkedin&iconset=feather -->
         <svg
           class="float-right h-2/3 ml-1"
@@ -82,44 +64,51 @@ import PlusCircle from "../components/PlusCircle.astro";
           <circle cx="4" cy="4" r="2"></circle>
         </svg>
       </li>
+      <li>
+        <a
+          href="https://drive.google.com/file/d/1vaeTdoNUB8yMikQs1wEeZcy9cgyOrt2P/view?usp=drive_link"
+          target="_blank">Resume</a
+        >
+        <!-- https://feathericons.dev/?search=file-text&iconset=feather -->
+        <svg
+          class="float-right h-2/3 ml-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          class="main-grid-item-icon"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+          ></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" x2="8" y1="13" y2="13"></line>
+          <line x1="16" x2="8" y1="17" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+      </li>
     </ul>
-
-    <svg
-      id="indicator"
-      class="fill-violet-900/20 text-violet-500 z-10"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      width="24"
-      height="24"
-      class="main-grid-item-icon"
-      fill="#fff"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    >
-      <circle cx="12" cy="12" r="10"></circle>
-    </svg>
   </nav>
 
-  <main class="h-auto px-32">
-    <header class="flex justify-center items-center flex-col h-screen">
-      <p class="text-zinc-400/40 tracking-wider self-start">
-        Hello, my name is
-      </p>
-      <h1 class="text-6xl mb-4 font-poppins tracking-wide self-start">
+  <main class="w-2/3">
+    <header class="flex justify-center items-left flex-col h-screen">
+      <p class="text-zinc-500">Hello, my name is</p>
+      <h1 class="text-6xl mb-4 tracking-wider text-violet-500">
         Jakub Swietoniowski
       </h1>
-      <p class="text-zinc-300 text-lg">
+      <p class="text-lg">
         A full-stack web developer that is committed to helping businesses
-        provide seamless user experiences, <span
-          class="text-transparent bg-clip-text bg-violet-500"
+        provide seamless user experiences, <span class="text-violet-500"
           >one line of JavaScript at a time</span
         >.
       </p>
       <a
         id="contact-first"
-        class="mt-8 self-start flex cursor-pointer"
+        class="mt-12 self-start flex cursor-pointer"
         href="mailto:50next50@gmail.com"
       >
         <div id="contact-first-overlay">
@@ -162,129 +151,96 @@ import PlusCircle from "../components/PlusCircle.astro";
         </svg>
       </a>
     </header>
-    <section
-      id="about"
-      class="text-zinc-300 flex h-screen justify-center items-center"
-    >
-      <div class="space-y-4 z-10 relative">
-        <h1 class="mb-6 text-8xl font-bold font-poppins text-zinc-800/80">
-          ABOUT.
-        </h1>
-        <p>
-          Hello, I'm Jakub and I enjoy creating interactive digital experiences
-          in all shapes and sizes. My programming journey dates back to 2014
-          when I decided to make my own incremental game. The constant thrill of
-          identifying and solving complex problems fuelled my determination to
-          pursue software development as a career.
-        </p>
-        <p>
-          Over the years, I improved my skills and explored various web
-          technologies. Currently, I am on the verge of earning a Bachelor's
-          degree in Computer Science from Lancaster University. I look forward
-          to collaborating with teams that value innovation, and I'm always open
-          to exciting opportunities to learn, grow, and contribute in meaningful
-          ways.
-        </p>
-      </div>
-      <div class="bg-gray-800 rounded-full float-right w-40 h-40 shrink-0">
+    <section id="about" class="flex h-screen justify-center items-center">
+      <div class="z-10">
+        <h1 class="text-8xl font-bold text-zinc-800">ABOUT</h1>
+        <div class="flex items-center">
+          <div class="space-y-6">
+            <p>
+              Hello, I'm Jakub and I enjoy creating interactive digital
+              experiences in all shapes and sizes. My programming journey dates
+              back to 2014 when I decided to make my own incremental game. The
+              constant thrill of identifying and solving complex problems
+              fuelled my determination to pursue software development as a
+              career.
+            </p>
+            <p>
+              Over the years, I improved my skills and explored various web
+              technologies. I recently obtained a First Class Bachelor's Degree
+              with Honours in Computer Science from Lancaster University. I look
+              forward to collaborating with teams that value innovation, and I'm
+              always open to exciting opportunities to learn, grow, and
+              contribute in meaningful ways.
+            </p>
+            <p>
+              In my free time, you can find me passionately playing 8-ball pool,
+              basketball and video games. In the future, I hope to join the
+              flight simulation community as aviation was always my secondary
+              passion.
+            </p>
+          </div>
+          <img
+            id="avatar"
+            class="rounded-full w-40 h-40 shrink-0 m-"
+            src="me.jpg"
+          />
+        </div>
       </div>
     </section>
     <section
       id="projects"
-      class="flex flex-col space-y-4 h-screen justify-center items-center"
+      class="flex flex-col h-screen justify-center items-center"
     >
-      <h1 class="self-end text-8xl font-bold font-poppins text-zinc-800/80">
-        PROJECTS.
-      </h1>
+      <h1 class="self-end text-8xl font-bold text-zinc-800">PROJECTS</h1>
       <div class="project bg-zinc-900/40 w-full rounded-md"></div>
       <div class="project bg-zinc-900/40 w-full rounded-md"></div>
     </section>
     <section
       id="contact"
-      class="text-zinc-300 flex flex-col space-y-4 h-screen justify-center items-center"
+      class="text-zinc-300 flex flex-col h-screen justify-center items-left"
     >
-      <h1 class="self-start text-8xl font-bold font-poppins text-zinc-800/80">
-        GET IN TOUCH.
-      </h1>
-      <h2 class="text-lg mb-4">
+      <h1 class="self-start text-8xl font-bold text-zinc-800">GET IN TOUCH</h1>
+      <h2 class="text-lg">
         I answer to all e-mails whenever I can. If you have a problem for me to
         solve, or just want to connect, please don't hesitate to contact me!
       </h2>
-      <a
-        id="contact-first"
-        class="text-zinc-100 mt-8 self-start flex cursor-pointer"
-        href="mailto:50next50@gmail.com"
-      >
-        <div id="contact-first-overlay">
-          <p>Let's work together</p>
-          <!-- https://feathericons.dev/?search=mail&iconset=feather -->
-          <svg
-            class="h-6 ml-3"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            class="main-grid-item-icon"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          >
-            <path
-              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-            ></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-        </div>
-        <p>Let's work together</p>
-        <svg
-          id="contact-arrow"
-          class="h-6 ml-3"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
+      <p class="mt-12 text-zinc-100">
+        Shoot me an <a
+          class="underline hover:text-violet-500"
+          href="mailto:50next50@gmail.com">e-mail</a
+        > or find me on <a
+          class="underline hover:text-violet-500"
+          href="https://www.linkedin.com/in/swietoniowski-jakub/">LinkedIn</a
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-        </svg>
-      </a>
+      </p>
     </section>
-    <footer class="text-zinc-400 flex flex-col items-end">
+    <footer class="text-zinc-500 flex flex-col items-end">
       <p>
-        Made with... <span class="italic text-zinc-500">checks notes</span>
+        Made with... <span class="italic">checks notes</span>
         a fine pair of hands, and <a
-          class="transition duration-200 ease-out text-zinc-100 hover:text-violet-500"
+          class="text-zinc-100 hover:text-violet-500"
           href="https://astro.build/">Astro</a
         >, and <a
-          class="transition duration-200 ease-out text-zinc-100 hover:text-violet-500"
+          class="text-zinc-100 hover:text-violet-500"
           href="https://tailwindcss.com/">Tailwind CSS</a
         >.
       </p>
       <p>
         This site does not use cookies, go eat some instead. Source code is
         available <a
-          class="transition duration-200 ease-out text-zinc-100 hover:text-violet-500"
+          class="text-zinc-100 hover:text-violet-500"
           href="https://github.com/jakubsdev/portfolio">here</a
         >.
       </p>
     </footer>
   </main>
-  <div
+  <!-- <div
     class="sticky top-0 w-[260px] h-screen flex shrink-0 flex-col justify-center items-start pl-4"
   >
-    <!-- <p class="top-40 text-zinc-400/40 tracking-wider self-start absolute">
-      Technologies I work with:
-    </p> -->
 
     <ul
       id="skills"
-      class="[&>li]:flex [&>li]:h-6 [&>li]:mb-1 [&>li]:w-full [&>li]:items-center [&>li>p]:font-poppins text-sm"
+      class="[&>li]:flex [&>li]:h-6 [&>li]:mb-1 [&>li]:w-full [&>li]:items-center text-sm"
     >
       <li>
         <PlusCircle float="left" />
@@ -319,26 +275,15 @@ import PlusCircle from "../components/PlusCircle.astro";
         <p>DOCKER</p>
       </li>
     </ul>
-  </div>
+  </div> -->
 
   <style>
-    /* body {
-      background: radial-gradient(
-        circle at var(--spot-x) var(--spot-y),
-        rgba(139, 92, 246, 1) 10%,
-        rgba(39, 39, 42, 1) 15%
-      );
-    } */
-
-    #indicator {
-      /* initial scale */
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
+    .active {
+      @apply text-violet-400;
     }
     #contact-first {
       position: relative;
+      @apply text-violet-100;
     }
     #contact-first-overlay {
       display: flex;
@@ -352,7 +297,7 @@ import PlusCircle from "../components/PlusCircle.astro";
       transform: translate(-50%, -50%);
       position: absolute;
       z-index: 10;
-      @apply bg-violet-700 text-black;
+      @apply bg-violet-500 text-black;
     }
   </style>
 </Layout>
