@@ -79,6 +79,83 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const menuIcon = document.querySelector<HTMLElement>("#menu-icon");
+  const menuTimeline = anime
+    .timeline({
+      easing: "easeInOutExpo",
+      autoplay: false,
+    })
+    .add({
+      targets: "#menu-circle",
+      scale: 500,
+      duration: 600,
+    })
+    .add(
+      {
+        targets: "#menu-icon span",
+        backgroundColor: "#8b5cf6",
+        duration: 300,
+        translateX: anime.stagger(-3, {
+          grid: [3, 3],
+          from: "center",
+          axis: "x",
+        }),
+        translateY: anime.stagger(-3, {
+          grid: [3, 3],
+          from: "center",
+          axis: "y",
+        }),
+      },
+      100
+    )
+    .add(
+      {
+        targets: "#menu-icon span:nth-child(2)",
+        translateY: 12,
+        scale: 0.1,
+        duration: 300,
+      },
+      100
+    )
+    .add(
+      {
+        targets: "#menu-icon span:nth-child(6)",
+        translateX: -12,
+        scale: 0.1,
+        duration: 300,
+      },
+      100
+    )
+    .add(
+      {
+        targets: navLinks,
+        translateY: [-10, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(80),
+        begin: () => {
+          document.querySelector("nav")!.style.display = "flex";
+        },
+      },
+      "-=300"
+    );
+
+  menuIcon!.addEventListener("click", () => {
+    if (menuTimeline.began) {
+      menuTimeline.reverse();
+
+      if (
+        menuTimeline.progress === 100 &&
+        menuTimeline.direction === "reverse"
+      ) {
+        menuTimeline.completed = false;
+      }
+    }
+
+    if (menuTimeline.paused) {
+      menuTimeline.play();
+    }
+  });
+
   const wrapper = document.querySelector<HTMLElement>("#wrapper");
 
   for (let i = 0; i < navLinks.length; i++) {
@@ -116,10 +193,15 @@ window.addEventListener("DOMContentLoaded", () => {
       duration: 600,
     })
     .add({
+      targets: "#menu-icon span",
+      scale: [0.1, 1],
+      delay: anime.stagger(200, { grid: [3, 3], from: "center" }),
+    })
+    .add({
       targets: navLinks,
       translateX: [-50, 0],
       opacity: [0, 1],
-      delay: anime.stagger(130),
+      delay: anime.stagger(80),
     })
     .add(
       {
@@ -128,7 +210,7 @@ window.addEventListener("DOMContentLoaded", () => {
         opacity: [0, 1],
         delay: anime.stagger(100),
       },
-      "-=800"
+      "-=1200"
     )
     .add(
       {

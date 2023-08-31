@@ -1,15 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Circle from "../components/Circle.astro";
-import PlusCircle from "../components/PlusCircle.astro";
 ---
 
 <Layout title="Jakub Swietoniowski">
+  <div
+    id="menu-icon"
+    class="fixed lg:hidden top-10 right-10 z-30 cursor-pointer w-7 h-7 [&>span]:bg-zinc-100 [&>span]:w-1 [&>span]:h-1 [&>span]:rounded-full [&>span]:absolute"
+  >
+    <span class="left-0 top-0"></span>
+    <span class="left-3 top-0"></span>
+    <span class="right-0 top-0"></span>
+    <span class="left-0 top-3"></span>
+    <span class="left-3 top-3"></span>
+    <span class="right-0 top-3"></span>
+    <span class="left-0 bottom-0"></span>
+    <span class="left-3 bottom-0"></span>
+    <span class="right-0 bottom-0"></span>
+  </div>
+  <div
+    id="menu-circle"
+    class="bg-zinc-900 lg:hidden fixed top-10 right-10 z-10 w-1 h-1 rounded-full"
+  >
+  </div>
   <nav
-    class="sticky top-0 w-[280px] h-screen flex shrink-0 justify-center items-center"
+    class="fixed lg:sticky z-20 h-full lg:h-screen w-full lg:top-0 lg:w-[280px] hidden lg:flex shrink-0 justify-center items-center"
   >
     <ul
-      class="relative text-zinc-100 [&>li]:flex [&>li>a:hover]:text-violet-500 [&>li>a:hover~svg]:stroke-violet-400 [&>li]:justify-end [&>li]:h-8 [&>li]:mb-1 [&>li]:items-center [&>*:nth-child(4)]:mt-11"
+      class="relative text-zinc-100 [&>li]:flex [&>li>a:hover]:text-violet-500 [&>li>a:hover~svg]:stroke-violet-400 [&>li]:justify-center sm:[&>li]:justify-end [&>li]:h-11 sm:[&>li]:h-8 [&>li]:mb-1 [&>li]:items-center [&>*:nth-child(4)]:mt-11"
     >
       <li>
         <a href="#about">About</a>
@@ -94,10 +111,10 @@ import PlusCircle from "../components/PlusCircle.astro";
     </ul>
   </nav>
 
-  <main class="w-2/3">
-    <header class="flex justify-center items-left flex-col h-screen">
+  <main class="px-4 w-full lg:w-2/3">
+    <header class="flex justify-center items-left flex-col min-h-screen">
       <p class="text-zinc-500">Hello, my name is</p>
-      <h1 class="text-6xl mb-4 tracking-wider text-violet-500">
+      <h1 class="text-5xl lg:text-6xl mb-4 tracking-wider text-violet-500">
         Jakub Swietoniowski
       </h1>
       <p class="text-lg">
@@ -151,10 +168,10 @@ import PlusCircle from "../components/PlusCircle.astro";
         </svg>
       </a>
     </header>
-    <section id="about" class="flex h-screen justify-center items-center">
-      <div class="z-10">
-        <h1 class="text-8xl font-bold text-zinc-800">ABOUT</h1>
-        <div class="flex items-center">
+    <section id="about" class="flex min-h-screen justify-center items-center">
+      <div>
+        <h1 class="text-7xl lg:text-8xl font-bold text-zinc-800">ABOUT</h1>
+        <div class="flex flex-col-reverse lg:flex-row items-center">
           <div class="space-y-6">
             <p>
               Hello, I'm Jakub and I enjoy creating interactive digital
@@ -181,7 +198,7 @@ import PlusCircle from "../components/PlusCircle.astro";
           </div>
           <img
             id="avatar"
-            class="rounded-full w-40 h-40 shrink-0 m-"
+            class="rounded-full w-40 h-40 shrink-0 m-8"
             src="me.jpg"
           />
         </div>
@@ -191,7 +208,9 @@ import PlusCircle from "../components/PlusCircle.astro";
       id="projects"
       class="flex flex-col h-screen justify-center items-center"
     >
-      <h1 class="self-end text-8xl font-bold text-zinc-800">PROJECTS</h1>
+      <h1 class="self-end text-7xl lg:text-8xl font-bold text-zinc-800">
+        PROJECTS
+      </h1>
       <div class="project bg-zinc-900/40 w-full rounded-md"></div>
       <div class="project bg-zinc-900/40 w-full rounded-md"></div>
     </section>
@@ -199,7 +218,9 @@ import PlusCircle from "../components/PlusCircle.astro";
       id="contact"
       class="text-zinc-300 flex flex-col h-screen justify-center items-left"
     >
-      <h1 class="self-start text-8xl font-bold text-zinc-800">GET IN TOUCH</h1>
+      <h1 class="self-start text-7xl lg:text-8xl font-bold text-zinc-800">
+        GET IN TOUCH
+      </h1>
       <h2 class="text-lg">
         I answer to all e-mails whenever I can. If you have a problem for me to
         solve, or just want to connect, please don't hesitate to contact me!
