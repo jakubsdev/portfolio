@@ -87,8 +87,9 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .add({
       targets: "#menu-circle",
-      scale: 500,
-      duration: 600,
+      scale: 700,
+      duration: 400,
+      easing: "easeInOutCubic",
     })
     .add(
       {
@@ -131,12 +132,12 @@ window.addEventListener("DOMContentLoaded", () => {
         targets: navLinks,
         translateY: [-10, 0],
         opacity: [0, 1],
-        delay: anime.stagger(80),
+        delay: anime.stagger(50),
         begin: () => {
           document.querySelector("nav")!.style.display = "flex";
         },
       },
-      "-=300"
+      "-=500"
     );
 
   menuIcon!.addEventListener("click", () => {
@@ -172,6 +173,28 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    navLinks[i].addEventListener("click", () => {
+      const isMenuVisible =
+        document.querySelector("nav")!.style.display == "flex" ? true : false;
+
+      if (isMenuVisible && window.innerWidth < 1024) {
+        if (menuTimeline.began) {
+          menuTimeline.reverse();
+
+          if (
+            menuTimeline.progress === 100 &&
+            menuTimeline.direction === "reverse"
+          ) {
+            menuTimeline.completed = false;
+          }
+        }
+
+        if (menuTimeline.paused) {
+          menuTimeline.play();
+        }
+      }
+    });
+
     navigation!.addEventListener("mouseleave", () => {
       anime({
         targets: "#wrapper",
@@ -190,13 +213,16 @@ window.addEventListener("DOMContentLoaded", () => {
     .add({
       targets: "#wrapper",
       opacity: [0, 1],
-      duration: 600,
+      duration: 300,
     })
-    .add({
-      targets: "#menu-icon span",
-      scale: [0.1, 1],
-      delay: anime.stagger(200, { grid: [3, 3], from: "center" }),
-    })
+    .add(
+      {
+        targets: "#menu-icon span",
+        scale: [0.1, 1],
+        delay: anime.stagger(200, { grid: [3, 3], from: "center" }),
+      },
+      "-=600"
+    )
     .add({
       targets: navLinks,
       translateX: [-50, 0],
