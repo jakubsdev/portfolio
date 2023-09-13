@@ -1,4 +1,5 @@
 ---
+import Arrow from "../components/Arrow.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -211,8 +212,46 @@ import Layout from "../layouts/Layout.astro";
       <h1 class="self-end text-7xl lg:text-8xl font-bold text-zinc-800">
         PROJECTS
       </h1>
-      <div class="project bg-zinc-900/40 w-full rounded-md"></div>
-      <div class="project bg-zinc-900/40 w-full rounded-md"></div>
+      <div
+        class="flex flex-col lg:flex-row w-full justify-center items-center py-8"
+      >
+        <img
+          class="rounded-lg w-full md:w-3/4 lg:w-1/2 -mb-6 lg:-mr-6"
+          src="codal.png"
+        />
+        <a
+          class="rounded-lg h-min p-4 w-full md:w-3/4 lg:w-1/2 bg-zinc-900 hover:brightness-110 [&:hover_svg]:-translate-y-1 [&:hover_svg]:translate-x-1 [&:hover_svg]:ease-in [&:hover_svg]:duration-100"
+          href="https://github.com/jakubsdev/codal-ide"
+        >
+          <h2 class="text-xl text-violet-500 mb-2">
+            C++ (CODAL) online IDE for MicroBit
+            <Arrow classes="inline" />
+          </h2>
+          <p>
+            This web application provides an IDE (Integrated Development
+            Environment) to write, store, compile and download MicroBit-ready
+            code which uses CODAL - a C++ runtime enviornment built specifically
+            for these microcontrollers. The website features Google login system
+            and MongoDB storage. The IDE has all the needed functionality such
+            as autocompletion, code suggestions, error reporting and semantic &
+            syntax highlighting, all running from clangd language server. The
+            whole project works on a group of docker containers with a docker
+            compose setup.
+          </p>
+          <ul
+            class="flex gap-2 flex-wrap mt-6 [&>li]:bg-zinc-800 [&>li]:text-violet-400 [&>li]:text-sm [&>li]:px-2.5 [&>li]:py-0.5 [&>li]:rounded [&>li]:border [&>li]:border-violet-500"
+          >
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>REACT.JS</li>
+            <li>JAVASCRIPT (ES6+)</li>
+            <li>TYPESCRIPT</li>
+            <li>NODE.JS</li>
+            <li>MONGODB</li>
+            <li>DOCKER</li>
+          </ul>
+        </a>
+      </div>
     </section>
     <section
       id="contact"
@@ -221,16 +260,16 @@ import Layout from "../layouts/Layout.astro";
       <h1 class="self-start text-7xl lg:text-8xl font-bold text-zinc-800">
         GET IN TOUCH
       </h1>
-      <h2 class="text-lg">
+      <p class="text-lg">
         I answer to all e-mails whenever I can. If you have a problem for me to
         solve, or just want to connect, please don't hesitate to contact me!
-      </h2>
-      <p class="mt-12 text-zinc-100">
+      </p>
+      <p class="mt-12">
         Shoot me an <a
-          class="underline hover:text-violet-500"
+          class="underline text-zinc-100 hover:text-violet-500"
           href="mailto:50next50@gmail.com">e-mail</a
         > or find me on <a
-          class="underline hover:text-violet-500"
+          class="underline text-zinc-100 hover:text-violet-500"
           href="https://www.linkedin.com/in/swietoniowski-jakub/">LinkedIn</a
         >
       </p>

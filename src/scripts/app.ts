@@ -163,12 +163,12 @@ window.addEventListener("DOMContentLoaded", () => {
     navLinks[i].addEventListener("mouseenter", () => {
       anime({
         targets: "#wrapper",
-        backgroundPosition: `0% ${i * -5}%`,
-        backgroundSize: "42px 42px",
-        easing: "easeOutCirc",
-        duration: 300,
+        backgroundPosition: `0% ${i * -2}%`,
+        backgroundSize: "41px 41px",
+        easing: "easeOutExpo",
+        duration: 500,
         complete: () => {
-          wrapper!.style.backgroundPosition = `0% ${i * -5}%`;
+          wrapper!.style.backgroundPosition = `0% ${i * -2}%`;
         },
       });
     });
@@ -198,7 +198,7 @@ window.addEventListener("DOMContentLoaded", () => {
     navigation!.addEventListener("mouseleave", () => {
       anime({
         targets: "#wrapper",
-        backgroundSize: "48px 48px",
+        backgroundSize: "44px 44px",
         easing: "easeOutCirc",
         duration: 300,
       });
