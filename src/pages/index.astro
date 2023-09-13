@@ -113,7 +113,7 @@ import Layout from "../layouts/Layout.astro";
   </nav>
 
   <main class="px-4 w-full lg:w-2/3">
-    <header class="flex justify-center items-left flex-col min-h-screen">
+    <header class="flex justify-center items-left flex-col min-h-screen py-12">
       <p class="text-zinc-500">Hello, my name is</p>
       <h1 class="text-5xl lg:text-6xl mb-4 tracking-wider text-violet-500">
         Jakub Swietoniowski
@@ -169,7 +169,10 @@ import Layout from "../layouts/Layout.astro";
         </svg>
       </a>
     </header>
-    <section id="about" class="flex min-h-screen justify-center items-center">
+    <section
+      id="about"
+      class="flex min-h-screen justify-center items-center py-12"
+    >
       <div>
         <h1 class="text-7xl lg:text-8xl font-bold text-zinc-800">ABOUT</h1>
         <div class="flex flex-col-reverse lg:flex-row items-center">
@@ -207,7 +210,7 @@ import Layout from "../layouts/Layout.astro";
     </section>
     <section
       id="projects"
-      class="flex flex-col h-screen justify-center items-center"
+      class="flex flex-col min-h-screen justify-center items-center py-12"
     >
       <h1 class="self-end text-7xl lg:text-8xl font-bold text-zinc-800">
         PROJECTS
@@ -255,7 +258,7 @@ import Layout from "../layouts/Layout.astro";
     </section>
     <section
       id="contact"
-      class="text-zinc-300 flex flex-col h-screen justify-center items-left"
+      class="text-zinc-300 flex flex-col min-h-screen justify-center items-left pt-12"
     >
       <h1 class="self-start text-7xl lg:text-8xl font-bold text-zinc-800">
         GET IN TOUCH
@@ -294,49 +297,6 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </footer>
   </main>
-  <!-- <div
-    class="sticky top-0 w-[260px] h-screen flex shrink-0 flex-col justify-center items-start pl-4"
-  >
-
-    <ul
-      id="skills"
-      class="[&>li]:flex [&>li]:h-6 [&>li]:mb-1 [&>li]:w-full [&>li]:items-center text-sm"
-    >
-      <li>
-        <PlusCircle float="left" />
-        <p>HTML</p>
-      </li>
-      <li>
-        <PlusCircle float="left" />
-        <p>CSS</p>
-      </li>
-      <li>
-        <PlusCircle float="left" />
-        <p>REACT.JS</p>
-      </li>
-      <li>
-        <PlusCircle float="left" />
-        <p>JAVASCRIPT (ES6+)</p>
-      </li>
-      <li>
-        <PlusCircle float="left" />
-        <p>TYPESCRIPT</p>
-      </li>
-      <li>
-        <PlusCircle float="left" />
-        <p>NODE.JS</p>
-      </li>
-      <li>
-        <PlusCircle float="left" />
-        <p>MONGODB</p>
-      </li>
-      <li>
-        <PlusCircle float="left" />
-        <p>DOCKER</p>
-      </li>
-    </ul>
-  </div> -->
-
   <style>
     .active {
       @apply text-violet-400;
