@@ -1,39 +1,25 @@
 ---
-export interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+import './src/styles/global.css';
 ---
-
-<!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Jakub Swietoniowski web developer portfolio"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <title>{title}</title>
-  </head>
-  <body class="bg-zinc-950">
-    <div
-      id="wrapper"
-      class="bg-gradient-radial from-zinc-900 from-10% to-zinc-950 to-10% bg-zero bg-[length:44px_44px] text-zinc-300 font-poppins flex"
-    >
-      <slot />
-    </div>
-  </body>
-  <script>
-    import "../scripts/app.ts";
-  </script>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Jakub Swietoniowski | Software Engineer</title>
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
