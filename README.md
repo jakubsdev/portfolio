@@ -1,4 +1,4 @@
-<center><h1>Personal Portfolio</h1></center>
+<h1 align='center'>Personal Portfolio</h1>
 
 This is a minimalistic portfolio website made with [Astro](https://astro.build/) and [Anime.js](https://animejs.com/).
 
